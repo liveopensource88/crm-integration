@@ -1,0 +1,159 @@
+{
+  "data": {
+    "name": "Ticket",
+    "fields": [
+      {
+        "name": "subject",
+        "label": "Subject",
+        "control": "InputText",
+        "type": "text",
+        "layout": {
+          "rowIndex": 1,
+          "columnWidth": 6
+        },
+        "validations": {
+          "minLength": 10,
+          "maxLength": 100,
+          "pattern": "^[a-zA-Z0-9 ]+$",
+          "messages": {
+            "pattern": "{label} can only contain letters, numbers and spaces."
+          }
+        }
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "control": "InputTextarea",
+        "layout": {
+          "rowIndex": 2,
+          "columnWidth": 12
+        }
+      },
+      {
+        "name": "departmentId",
+        "label": "Department",
+        "placeholder": "Select a department",
+        "control": "Dropdown",
+        "api": {
+          "url": "departments"
+        },
+        "layout": {
+          "rowIndex": 3,
+          "columnWidth": 6
+        }
+      },
+      {
+        "name": "assigneeId",
+        "label": "Assignee",
+        "placeholder": "Select an assignee",
+        "control": "Dropdown",
+        "dependsOn": [
+          "departmentId"
+        ],
+        "api": {
+          "url": "agents?departmentIds={departmentId}"
+        },
+        "layout": {
+          "rowIndex": 3,
+          "columnWidth": 6
+        }
+      },
+      {
+        "name": "contactId",
+        "label": "Contact",
+        "placeholder": "Select a contact",
+        "control": "Dropdown",
+        "api": {
+          "url": "contacts",
+          "mapping": {
+            "firstName,lastName": "name"
+          }
+        },
+        "layout": {
+          "rowIndex": 4,
+          "columnWidth": 6
+        }
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "placeholder": "Select status",
+        "control": "Dropdown",
+        "options": [
+          {
+            "name": "Open",
+            "id": "Open"
+          },
+          {
+            "name": "On Hold",
+            "id": "On Hold"
+          },
+          {
+            "name": "Escalated",
+            "id": "Escalated"
+          },
+          {
+            "name": "Closed",
+            "id": "Closed"
+          }
+        ],
+        "layout": {
+          "rowIndex": 4,
+          "columnWidth": 6
+        }
+      }
+    ],
+    "operations": {
+      "create": {
+        "api": {
+          "url": "tickets",
+          "method": "post",
+          "message": {
+            "success": "Ticket created successfully",
+            "error": "An error occurred while creating ticket"
+          }
+        },
+        "visible": [
+          "subject",
+          "description",
+          "departmentId",
+          "assigneeId",
+          "contactId"
+        ],
+        "required": [
+          "subject",
+          "description",
+          "departmentId",
+          "contactId"
+        ],
+        "readOnly": []
+      },
+      "update": {
+        "api": {
+          "url": "tickets/{id}",
+          "method": "patch",
+          "message": {
+            "success": "Ticket updated successfully",
+            "error": "An error occurred while updating ticket"
+          }
+        },
+        "visible": [
+          "subject",
+          "description",
+          "departmentId",
+          "assigneeId",
+          "contactId",
+          "status"
+        ],
+        "required": [
+          "subject",
+          "description",
+          "departmentId",
+          "contactId",
+          "status"
+        ],
+        "readOnly": []
+      }
+    }
+  }
+}

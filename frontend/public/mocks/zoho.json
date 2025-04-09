@@ -1,0 +1,55 @@
+{
+  "data": {
+    "name": "Configuration",
+    "fields": [
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "control": "InputText",
+        "type": "text"
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client Secret",
+        "control": "InputText",
+        "type": "text"
+      },
+      {
+        "name": "scope",
+        "label": "Scope",
+        "control": "InputText",
+        "type": "text"
+      },
+      {
+        "name": "soid",
+        "label": "SOID",
+        "control": "InputText",
+        "type": "text"
+      }
+    ],
+    "operations": {
+      "update": {
+        "api": {
+          "url": "config",
+          "message": {
+            "success": "CRM configured successfully",
+            "error": "An error occured while configuring CRM"
+          }
+        },
+        "visible": [
+          "clientId",
+          "clientSecret",
+          "scope",
+          "soid"
+        ],
+        "required": [
+          "clientId",
+          "clientSecret",
+          "scope",
+          "soid"
+        ],
+        "readOnly": []
+      }
+    }
+  }
+}

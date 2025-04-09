@@ -1,0 +1,7 @@
+.communication .p-avatar {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.communication .p-avatar .p-avatar-icon {
+  font-size: 0.6rem;
+}

@@ -1,0 +1,26 @@
+{
+    "totalRecords": 3,
+    "data": [
+      {
+        "id": "zoho",
+        "name": "Zoho CRM",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image":"images/zoho-desk.png",
+        "status": "Active"
+      },
+      {
+        "id": "salesforce",
+        "name": "Salesforce",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image":"images/salesforce.png",
+        "status": "Active"
+      },
+      {
+        "id": "hubspot",
+        "name": "Hubspot",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "image":"images/hubspot.png",
+        "status": "Active"
+      }
+    ]
+  }
